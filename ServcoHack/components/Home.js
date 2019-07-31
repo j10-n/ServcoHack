@@ -7,10 +7,12 @@ const Home = props => {
     <View style={styles.container}>
       <Header
         leftComponent={{ icon: "menu", color: "#fff" }}
-        centerComponent={{ text: "HOME", style: { color: "#fff", size: 20 } }}
+        centerComponent={{ text: "HOME", style: { color: "#fff" } }}
         rightComponent={{ icon: "home", color: "#fff" }}
       />
-      <Text h3>Servco</Text>
+      <Text h3>Servco Ohana</Text>
+      <Text title="welcomeuser">Welcome Jen!</Text>
+
       <Card title="2019 Toyota PRIUS XLE HYBRID">
         <Image
           source={{
@@ -20,24 +22,12 @@ const Home = props => {
           style={{ width: 330, height: 230, resizeMode: "contain" }}
         />
         <Text style={{ marginBottom: 10 }}>
-          The idea with React Native Elements is more about component structure
-          than actual design.
+          Click on your car to view more details...
         </Text>
-        <Button
-          type="outline"
-          icon={<Icon name="code" color="#ffffff" />}
-          backgroundColor="#03A9F4"
-          buttonStyle={{
-            borderRadius: 0,
-            marginLeft: 0,
-            marginRight: 0,
-            marginBottom: 0
-          }}
-          title="VIEW NOW"
-        />
-        <Text title="welcomeuser">Welcome Jen!</Text>
+        <Text>Warranty Expiration Date:</Text>
+        <Text>Maintenance Due Date:</Text>
 
-        <Button type="solid" title="Schedule" />
+        <Button type="solid" style={{ marginTop: 40 }} title="Schedule" />
         <Button type="solid" style={{ marginTop: 10 }} title="Car Payment" />
       </Card>
     </View>
@@ -49,6 +39,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center"
+  },
+  button: {
+    backgroundColor: "#3CB371"
   }
 });
 

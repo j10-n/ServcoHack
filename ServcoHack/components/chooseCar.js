@@ -65,6 +65,9 @@ export default class ChooseCar extends Component {
         </Picker>
         <Button
           style={styles.button}
+          buttonStyle={{
+            backgroundColor: "#18228c"
+          }}
           title="Next"
           onPress={() => {
             this.props.navigation.navigate("ChooseCar2");

@@ -65,6 +65,29 @@ export default class Home extends Component {
             style={{ marginTop: 10 }}
             title="Car Payment"
           />
+
+          {/* <Button
+                    type=“solid”
+             style={{ marginTop: 40 }}
+                title=“Compare Carbon Output Here”
+             buttonStyle={{
+                    backgroundColor: “#18228c”
+              }}
+             onPress={() => {
+                    this.props.navigation.navigate(“ChooseCar”);
+              }}
+            /> */}
+          <Button
+            type="solid"
+            style={{ marginTop: 10 }}
+            title="Compare Carbon Output"
+            buttonStyle={{
+              backgroundColor: "#18228c"
+            }}
+            onPress={() => {
+              this.props.navigation.navigate("ChooseCar");
+            }}
+          />
         </Card>
       </View>
     );
@@ -83,6 +106,6 @@ const styles = StyleSheet.create({
     marginTop: 40
   },
   header: {
-    backgroundColor: "red"
+    // backgroundColor: "red"
   }
 });

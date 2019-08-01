@@ -36,42 +36,79 @@ export default class ChooseCarServco extends Component {
     }
   };
 
+  static navigationOptions = {
+    title: "Select Servco Vehicle",
+    headerStyle: {
+      backgroundColor: "#18228c"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
+
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Image
           source={{ uri: this.state.carImage }}
-          style={{ width: 200, height: 200 }}
+          style={{ width: 250, height: 200 }}
           resizeMode="contain"
         />
-        <Text style={{ fontSize: 40 }}>Carbon Compare</Text>
-        <Text>Select A Servco Model</Text>
-        <Picker
-          selectedValue={this.state.car1}
-          style={{ height: 50, width: 100 }}
-          onValueChange={this.onValueChange}
+        {/* <Text style={{ fontSize: 40 }}>Carbon Compare</Text>
+        <Text>Select A Servco Model</Text> */}
+
+        <View
+          style={{
+            position: "absolute",
+            top: 80,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            justifyContent: "center",
+            alignItems: "center"
+          }}
         >
-          <Picker.Item
-            label=" Toyoto Prius"
-            value="Toyota Prius"
-            image="https://static.tcimg.net/vehicles/primary/faa5c82227423d86/2019-Toyota-Prius-white-full_color-driver_side_front_quarter.png"
-          />
-          <Picker.Item
-            label="Lexus UX Hybrid"
-            value="Lexus UX Hybrid"
-            image="https://www.cstatic-images.com/car-pictures/xl/cac20foc052b0101.png"
-          />
-        </Picker>
-        <Button
-          style={styles.button}
-          title="See Results"
-          buttonStyle={{
-            backgroundColor: "#18228c"
+          <Picker
+            selectedValue={this.state.car1}
+            style={{ height: 50, width: 200 }}
+            onValueChange={this.onValueChange}
+          >
+            <Picker.Item
+              label=" Toyoto Prius"
+              value="Toyota Prius"
+              image="https://static.tcimg.net/vehicles/primary/faa5c82227423d86/2019-Toyota-Prius-white-full_color-driver_side_front_quarter.png"
+            />
+            <Picker.Item
+              label="Lexus UX Hybrid"
+              value="Lexus UX Hybrid"
+              image="https://www.cstatic-images.com/car-pictures/xl/cac20foc052b0101.png"
+            />
+          </Picker>
+        </View>
+
+        <View
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            justifyContent: "center",
+            alignItems: "center"
           }}
-          onPress={() => {
-            this.props.navigation.navigate("Comparison");
-          }}
-        />
+        >
+          <Button
+            style={styles.button}
+            title="View Results"
+            buttonStyle={{
+              backgroundColor: "#18228c"
+            }}
+            onPress={() => {
+              this.props.navigation.navigate("Comparison");
+            }}
+          />
+        </View>
       </View>
     );
   }
@@ -79,7 +116,8 @@ export default class ChooseCarServco extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
   },
   container2: {
     display: "flex",
@@ -94,7 +132,6 @@ const styles = StyleSheet.create({
     fontSize: 100
   },
   button: {
-    position: "absolute",
-    bottom: 0
+    top: 220
   }
 });

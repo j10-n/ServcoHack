@@ -2,22 +2,12 @@ import React, { Component } from "react";
 import { Header, Button, Card, Icon, Image, Text } from "react-native-elements";
 import { StyleSheet, View } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 
-export default class FinalScreen extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props);
   }
-  static navigationOptions = {
-    title: "Home",
-    headerStyle: {
-      backgroundColor: "#f4511e"
-    },
-    headerTintColor: "#fff",
-    headerTitleStyle: {
-      fontWeight: "bold"
-    }
-  };
 
   static navigationOptions = {
     title: "Home",
@@ -37,8 +27,8 @@ export default class FinalScreen extends Component {
           SERVCO OHANA
         </Text>
         <Text title="welcomeuser">Welcome Jen!</Text>
-
-        <Card title="2019 Toyota PRIUS XLE HYBRID">
+        {/* <ScrollView> */}
+        <Card title="2019 Toyota Prius XLE Hybrid">
           <TouchableOpacity
             onPress={() => {
               this.props.navigation.navigate("CarbonData");
@@ -52,11 +42,11 @@ export default class FinalScreen extends Component {
               style={{ width: 330, height: 230, resizeMode: "contain" }}
             />
           </TouchableOpacity>
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.text}>
             Click on your car to view more details...
           </Text>
-          <Text>Warranty Expiration Date:</Text>
-          <Text>Maintenance Due Date:</Text>
+          <Text>Warranty Expiration Date: December 20, 2021</Text>
+          <Text>Maintenance Due Date: September 13, 2024</Text>
 
           <Button
             style={styles.button}
@@ -68,12 +58,6 @@ export default class FinalScreen extends Component {
             onPress={() => {
               this.props.navigation.navigate("Schedule_Calendar");
             }}
-          />
-          <Button
-            type="solid"
-            disabled={true}
-            style={{ marginTop: 10 }}
-            title="Car Payment"
           />
 
           {/* <Button
@@ -98,7 +82,14 @@ export default class FinalScreen extends Component {
               this.props.navigation.navigate("ChooseCar");
             }}
           />
+          <Button
+            type="solid"
+            disabled={true}
+            style={{ marginTop: 10 }}
+            title="Car Payment"
+          />
         </Card>
+        {/* </ScrollView> */}
       </View>
     );
   }
@@ -110,10 +101,13 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   text: {
-    margin: 10
+    margin: 10,
+    paddingLeft: 15,
+    fontWeight: "bold",
+    alignItems: "center"
   },
   button: {
-    marginTop: 40
+    marginTop: 30
   },
   header: {
     // backgroundColor: "red"

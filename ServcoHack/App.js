@@ -1,15 +1,17 @@
-import React from "react";
-import { Button } from "react-native-elements";
-import { StyleSheet, Text, View } from "react-native";
-import Jah from "./components/test";
+import React, { Component } from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import ScheduleDay from "./components/scheduleDay";
+import Schedule from "./components/schedule";
 import Home from "./components/Home";
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Home />
-    </View>
-  );
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Home />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -20,3 +22,15 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+
+const AppNavigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Schedule_Calendar: Schedule,
+    Schedule_Day: ScheduleDay
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
+export default createAppContainer(AppNavigator);

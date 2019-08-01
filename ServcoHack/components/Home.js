@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Header, Button, Card, Icon, Image, Text } from "react-native-elements";
 import { StyleSheet, View, TouchableHighlight } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
 export default class Home extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ export default class Home extends Component {
           <Text title="welcomeuser">Welcome Jen!</Text>
 
           <Card title="2019 Toyota PRIUS XLE HYBRID">
-            <TouchableHighlight
+            <TouchableOpacity
               onPress={() => {
                 this.props.navigation.navigate("CarbonData");
               }}
@@ -42,7 +42,7 @@ export default class Home extends Component {
                 }}
                 style={{ width: 330, height: 230, resizeMode: "contain" }}
               />
-            </TouchableHighlight>
+            </TouchableOpacity>
             <Text style={{ marginBottom: 10 }}>
               Click on your car to view more details...
             </Text>

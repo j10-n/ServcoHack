@@ -65,6 +65,9 @@ export default class ChooseCarServco extends Component {
         <Button
           style={styles.button}
           title="See Results"
+          buttonStyle={{
+            backgroundColor: "#18228c"
+          }}
           onPress={() => {
             this.props.navigation.navigate("Comparison");
           }}

@@ -8,6 +8,7 @@ import ChooseCar from "./components/chooseCar";
 import ChooseCarServco from "./components/chooseCar2";
 import CarbonData from "./components/carbonData";
 import Comparison from "./components/comparison";
+import FinalScreen from "./components/finalScreen";
 class HomeScreen extends React.Component {
   render() {
     return (
@@ -40,10 +41,22 @@ const AppNavigator = createStackNavigator(
     ChooseCar: ChooseCar,
     ChooseCar2: ChooseCarServco,
     CarbonData: CarbonData,
-    Comparison: Comparison
+    Comparison: Comparison,
+    FinalScreen: FinalScreen
   },
   {
     initialRouteName: "Home"
   }
 );
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center"
+//   },
+//   button: {
+//     backgroundColor: "#3CB371"
+//   }
+// });
 export default createAppContainer(AppNavigator);

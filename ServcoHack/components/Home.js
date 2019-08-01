@@ -6,11 +6,21 @@ const Home = props => {
   return (
     <View style={styles.container}>
       <Header
+        containerStyle={{
+          backgroundColor: "#18228c",
+          justifyContent: "space-around"
+        }}
+        style={styles.header}
+        headerStyle={{
+          backgroundColor: "#3CB371"
+        }}
         leftComponent={{ icon: "menu", color: "#fff" }}
         centerComponent={{ text: "HOME", style: { color: "#fff" } }}
         rightComponent={{ icon: "home", color: "#fff" }}
       />
-      <Text h3>Servco Ohana</Text>
+      <Text h3 style={styles.text}>
+        SERVCO OHANA
+      </Text>
       <Text title="welcomeuser">Welcome Jen!</Text>
 
       <Card title="2019 Toyota PRIUS XLE HYBRID">
@@ -27,8 +37,20 @@ const Home = props => {
         <Text>Warranty Expiration Date:</Text>
         <Text>Maintenance Due Date:</Text>
 
-        <Button type="solid" style={{ marginTop: 40 }} title="Schedule" />
-        <Button type="solid" style={{ marginTop: 10 }} title="Car Payment" />
+        <Button
+          style={styles.button}
+          type="solid"
+          buttonStyle={{
+            backgroundColor: "#18228c"
+          }}
+          title="Schedule"
+        />
+        <Button
+          type="solid"
+          disabled={true}
+          style={{ marginTop: 10 }}
+          title="Car Payment"
+        />
       </Card>
     </View>
   );
@@ -40,8 +62,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center"
   },
+  text: {
+    margin: 10
+  },
   button: {
-    backgroundColor: "#3CB371"
+    marginTop: 40
+  },
+  header: {
+    backgroundColor: "red"
   }
 });
 

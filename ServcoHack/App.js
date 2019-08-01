@@ -6,12 +6,7 @@ import ChooseCar from "./components/chooseCar";
 import ChooseCarServco from "./components/chooseCar2";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      {/* <ChooseCar /> */}
-      <ChooseCarServco />
-    </View>
-  );
+  return <View style={styles.container} />;
 }
 
 const styles = StyleSheet.create({

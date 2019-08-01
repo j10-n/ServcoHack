@@ -13,25 +13,25 @@ import { Header, Button } from "react-native-elements";
 
 export default class ChooseCarServco extends Component {
   state = {
-    car1: "Honda Civic",
+    car1: "Toyota Prius",
     carImage:
-      "https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2019-Honda-Civic-Lunar-Silver-Metallic.png"
+      "https://static.tcimg.net/vehicles/primary/faa5c82227423d86/2019-Toyota-Prius-white-full_color-driver_side_front_quarter.png"
   };
 
   onValueChange = (itemValue, itemIndex) => {
     this.setState({ car1: itemValue });
     if (
       this.state.carImage ===
-      "https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2019-Honda-Civic-Lunar-Silver-Metallic.png"
+      "https://static.tcimg.net/vehicles/primary/faa5c82227423d86/2019-Toyota-Prius-white-full_color-driver_side_front_quarter.png"
     ) {
       this.setState({
         carImage:
-          "https://www.cstatic-images.com/car-pictures/xl/cac20foc052b0101.png"
+          "https://www.lexus.com/cm-img/gallery/2019/UX/Lexus-UX-200-frontpassenger34-gallery-thumbnail-624x437-LEX-UXG-MY19-0008-02.png"
       });
     } else {
       this.setState({
         carImage:
-          "https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2019-Honda-Civic-Lunar-Silver-Metallic.png"
+          "https://static.tcimg.net/vehicles/primary/faa5c82227423d86/2019-Toyota-Prius-white-full_color-driver_side_front_quarter.png"
       });
     }
   };
@@ -45,7 +45,7 @@ export default class ChooseCarServco extends Component {
           resizeMode="contain"
         />
         <Text style={{ fontSize: 40 }}>Carbon Compare</Text>
-        <Text>Select Your Car</Text>
+        <Text>Select A Servco Model</Text>
         <Picker
           selectedValue={this.state.car1}
           style={{ height: 50, width: 100 }}
@@ -54,7 +54,7 @@ export default class ChooseCarServco extends Component {
           <Picker.Item
             label=" Toyoto Prius"
             value="Toyota Prius"
-            image="https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2019-Honda-Civic-Lunar-Silver-Metallic.png"
+            image="https://static.tcimg.net/vehicles/primary/faa5c82227423d86/2019-Toyota-Prius-white-full_color-driver_side_front_quarter.png"
           />
           <Picker.Item
             label="Lexus UX Hybrid"
@@ -62,7 +62,7 @@ export default class ChooseCarServco extends Component {
             image="https://www.cstatic-images.com/car-pictures/xl/cac20foc052b0101.png"
           />
         </Picker>
-        <Button style={styles.button} title="Next" />
+        <Button style={styles.button} title="See Results" />
       </View>
     );
   }

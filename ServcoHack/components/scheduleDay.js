@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Picker } from "react-native";
-import { Header, Button } from "react-native-elements";
+import { Header, Button, Card } from "react-native-elements";
 import DateTimePicker from "react-native-modal-datetime-picker";
 export default class ScheduleDay extends Component {
   constructor(props) {
@@ -28,9 +28,20 @@ export default class ScheduleDay extends Component {
       location: null
     };
   }
+  static navigationOptions = {
+    title: "Schedule Time",
+    headerStyle: {
+      backgroundColor: "#18228c"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
+
   componentDidMount() {
     const { navigation } = this.props;
-    const selectDay = " " + navigation.getParam("selectDay") + " ";
+    const selectDay = " " + navigation.getParam("selectDay") + ", ";
     const selectMonth = navigation.getParam("selectMonth");
     const selectYear = navigation.getParam("selectYear");
     const selectLocation = navigation.getParam("selectLocation");
@@ -67,18 +78,74 @@ export default class ScheduleDay extends Component {
     const fullDate = monthShow + day + year + " " + time;
     return (
       <View style={styles.container}>
-        {/* <Button title="Pick Your Time" onPress={this.showDateTimePicker} /> */}
-        {/* <DateTimePicker
+        <View style={styles.container}>
+          {/* <Button title="Pick Your Time" onPress={this.showDateTimePicker} /> */}
+          {/* <DateTimePicker
           mode="time"
           minuteInterval="30"
           isVisible={this.state.isDateTimePickerVisible}
           onConfirm={this.handleDatePicked}
           onCancel={this.hideDateTimePicker}
         /> */}
+          <View style={styles.appointment}>
+            <Text>Select your appointment time for:</Text>
+          </View>
+          <View style={styles.dateContainer}>
+            <Text style={styles.text}>{location}</Text>
+          </View>
+          <View style={styles.dateContainer}>
+            <Text style={styles.text}>{monthShow}</Text>
+            <Text style={styles.text}>{day}</Text>
+            <Text style={styles.text}>{year}</Text>
+          </View>
 
-        <View style={styles.bottom}>
+          <View
+            style={{
+              position: "absolute",
+              top: 80,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Picker
+              selectedValue={this.state.time}
+              onValueChange={this.updateTime}
+              style={styles.picker}
+            >
+              <Picker.Item label="7:00 AM" value="7:00 AM" />
+              <Picker.Item label="8:00 AM" value="8:00 AM" />
+              <Picker.Item label="9:00 AM" value="9:00 AM" />
+              <Picker.Item label="10:00 AM" value="10:00 AM" />
+              <Picker.Item label="11:00 AM" value="11:00 AM" />
+              <Picker.Item label="12:00 PM" value="12:00 PM" />
+              <Picker.Item label="1:00 PM" value="1:00 PM" />
+              <Picker.Item label="2:00 PM" value="2:00 PM" />
+              <Picker.Item label="3:00 PM" value="3:00 PM" />
+              <Picker.Item label="4:00 PM" value="4:00 PM" />
+              <Picker.Item label="5:00 PM" value="5:00 PM" />
+            </Picker>
+          </View>
+        </View>
+
+        <View
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
           <Button
             style={styles.button}
+            buttonStyle={{
+              backgroundColor: "#18228c"
+            }}
             title="Set My Appointment"
             onPress={() => {
               this.props.navigation.navigate("FinalScreen", {
@@ -87,37 +154,6 @@ export default class ScheduleDay extends Component {
               });
             }}
           />
-        </View>
-        <View style={styles.appointment}>
-          <Text>Select Your Appointment Time for</Text>
-        </View>
-        <View style={styles.dateContainer}>
-          <Text style={styles.text}>{location}</Text>
-        </View>
-        <View style={styles.dateContainer}>
-          <Text style={styles.text}>{monthShow}</Text>
-          <Text style={styles.text}>{day}</Text>
-          <Text style={styles.text}>{year}</Text>
-        </View>
-
-        <View style={styles.pickerContainer}>
-          <Picker
-            selectedValue={this.state.time}
-            onValueChange={this.updateTime}
-            style={styles.picker}
-          >
-            <Picker.Item label="7:00 AM" value="7:00 AM" />
-            <Picker.Item label="8:00 AM" value="8:00 AM" />
-            <Picker.Item label="9:00 AM" value="9:00 AM" />
-            <Picker.Item label="10:00 AM" value="10:00 AM" />
-            <Picker.Item label="11:00 AM" value="11:00 AM" />
-            <Picker.Item label="12:00 PM" value="12:00 PM" />
-            <Picker.Item label="1:00 PM" value="1:00 PM" />
-            <Picker.Item label="2:00 PM" value="2:00 PM" />
-            <Picker.Item label="3:00 PM" value="3:00 PM" />
-            <Picker.Item label="4:00 PM" value="4:00 PM" />
-            <Picker.Item label="5:00 PM" value="5:00 PM" />
-          </Picker>
         </View>
       </View>
     );
@@ -132,12 +168,14 @@ const styles = StyleSheet.create({
     padding: 10
   },
   picker: {
-    height: 30,
+    height: 10,
     width: 200,
     padding: 10
   },
   pickerContainer: {
-    flex: 0.5,
+    position: "absolute",
+    top: 75,
+    left: 90,
     alignItems: "center"
   },
   dateContainer: {
@@ -146,7 +184,9 @@ const styles = StyleSheet.create({
     padding: 20
   },
   button: {
-    backgroundColor: "#3CB371"
+    backgroundColor: "#18228c",
+    top: 250,
+    left: 0
   },
   appointment: {
     alignItems: "center"

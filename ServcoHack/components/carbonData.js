@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, Image, StyleSheet, FlatList, Linking } from "react-native";
-import { Header } from "react-native-elements";
+import { Header, Button, Card } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
 
 export default class CarbonData extends Component {
@@ -8,73 +8,93 @@ export default class CarbonData extends Component {
     url:
       "https://static.tcimg.net/vehicles/primary/faa5c82227423d86/2019-Toyota-Prius-white-full_color-driver_side_front_quarter.png"
   };
+
+  static navigationOptions = {
+    title: "Your Car Details",
+    headerStyle: {
+      backgroundColor: "#18228c"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView>
-          <Header
-            leftComponent={{ icon: "menu", color: "#fff" }}
-            centerComponent={{ text: "HOME", style: { color: "#fff" } }}
-            rightComponent={{ icon: "home", color: "#fff" }}
-          />
-          <Text style={styles.fontSize2}>2019 Toyota Prius</Text>
-          <Image
-            source={{
-              uri: this.state.url
-            }}
-            style={{ width: 200, height: 200 }}
-            resizeMode="contain"
-          />
-          <FlatList
-            data={[
-              { key: "MPG:48" },
-              { key: "Avg Yearly Carbon Output:2.98 metric tons" },
-              { key: "Engine Type:Hybrid" },
-              { key: "Total Seats:5" },
-              { key: "Drive Type: Front Wheel Drive" },
-              { key: "Cylinders: Inline 4" },
-              { key: "Transmission:Continuously variable-speed automatic" }
-            ]}
-            renderItem={({ item }) => (
-              <Text style={styles.item}>{item.key}</Text>
-            )}
-          />
-          <Text
-            style={{ color: "blue" }}
-            onPress={() =>
-              Linking.openURL(
-                "http://welcomehomebucket.s3-website-us-west-2.amazonaws.com/"
-              )
-            }
-          >
-            Test Drive
-          </Text>
-        </ScrollView>
-      </View>
+      <Card title="2019 Toyota Prius" style={styles.container}>
+        {/* <ScrollView> */}
+        <Image
+          source={{
+            uri: this.state.url
+          }}
+          style={{
+            width: 310,
+            height: 200
+          }}
+          resizeMode="contain"
+        />
+        <FlatList
+          data={[
+            { key: "MPG: 48" },
+            { key: "Avg Yearly Carbon Output: 2.98 metric tons" },
+            { key: "Engine Type: Hybrid" },
+            { key: "Total Seats: 5" },
+            { key: "Drive Type: Front Wheel Drive" },
+            { key: "Cylinders: Inline 4" },
+            { key: "Transmission: Continuously variable-speed automatic" }
+          ]}
+          renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+        />
+
+        <Button
+          style={styles.button}
+          buttonStyle={{
+            backgroundColor: "#18228c"
+          }}
+          title="Test Drive"
+          onPress={() => {
+            Linking.openURL(
+              "http://welcomehomebucket.s3-website-us-west-2.amazonaws.com/"
+            );
+          }}
+        />
+        <Button
+          style={styles.button}
+          buttonStyle={{
+            backgroundColor: "#18228c"
+          }}
+          disabled={true}
+          title="Maintenance History"
+        />
+
+        {/* </ScrollView> */}
+      </Card>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: "center",
     alignItems: "center"
   },
   fontSize: {
     fontSize: 30
   },
   fontSize2: {
-    fontSize: 25
+    fontSize: 25,
+    fontWeight: "bold",
+    marginTop: 10,
+    alignItems: "center",
+    justifyContent: "center"
   },
   item: {
     alignItems: "center",
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: "gray",
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: "gray"
+    fontSize: 15,
+    paddingBottom: 5
+  },
+  button: {
+    marginTop: 20
   }
 });

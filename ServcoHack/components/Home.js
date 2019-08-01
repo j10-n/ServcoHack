@@ -9,16 +9,24 @@ export default class Home extends Component {
     super(props);
   }
 
+  static navigationOptions = {
+    title: "Home",
+    headerStyle: {
+      backgroundColor: "#18228c"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView horizontal={false}>
-          <Header
-            leftComponent={{ icon: "menu", color: "#fff" }}
-            centerComponent={{ text: "HOME", style: { color: "#fff" } }}
-            rightComponent={{ icon: "home", color: "#fff" }}
-          />
-          <Text h3>Servco Ohana</Text>
+        <ScrollView>
+          <Text style={styles.text} h3>
+            SERVCO OHANA
+          </Text>
           <Text title="welcomeuser">Welcome Jen!</Text>
 
           <Card title="2019 Toyota PRIUS XLE HYBRID">
@@ -68,14 +76,19 @@ export default class Home extends Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center"
   },
+  text: {
+    margin: 10
+  },
   button: {
-    backgroundColor: "#3CB371"
+    marginTop: 40
+  },
+  header: {
+    backgroundColor: "red"
   }
 });

@@ -13,6 +13,7 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Header
+          containerStyle={{ backgroundColor: "#18228c" }}
           leftComponent={{ icon: "menu", color: "#fff" }}
           centerComponent={{ text: "HOME", style: { color: "#fff" } }}
           rightComponent={{ icon: "home", color: "#fff" }}
@@ -27,8 +28,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: "center"
   }
 });
 

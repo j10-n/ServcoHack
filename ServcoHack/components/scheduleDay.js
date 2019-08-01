@@ -60,8 +60,8 @@ export default class ScheduleDay extends Component {
     this.setState({ time: select });
   };
   render() {
-    const { day, month, year, monthShow } = this.state;
-
+    const { day, month, year, monthShow, time } = this.state;
+    const fullDate = monthShow + day + year + " " + time;
     return (
       <View style={styles.container}>
         {/* <Button title="Pick Your Time" onPress={this.showDateTimePicker} /> */}
@@ -78,7 +78,9 @@ export default class ScheduleDay extends Component {
             style={styles.button}
             title="Set My Appointment"
             onPress={() => {
-              this.props.navigation.navigate("FinalScreen");
+              this.props.navigation.navigate("FinalScreen", {
+                apptDate: fullDate
+              });
             }}
           />
         </View>

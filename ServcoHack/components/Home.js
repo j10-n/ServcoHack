@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Header, Button, Card, Icon, Image, Text } from "react-native-elements";
-import { StyleSheet, View, TouchableHighlight } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 
 export default class Home extends Component {
   constructor(props) {
@@ -23,12 +23,11 @@ export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.text} h3>
+          SERVCO OHANA
+        </Text>
+        <Text title="welcomeuser">Welcome Jen!</Text>
         <ScrollView>
-          <Text style={styles.text} h3>
-            SERVCO OHANA
-          </Text>
-          <Text title="welcomeuser">Welcome Jen!</Text>
-
           <Card title="2019 Toyota PRIUS XLE HYBRID">
             <TouchableOpacity
               onPress={() => {
@@ -48,6 +47,7 @@ export default class Home extends Component {
             </Text>
             <Text>Warranty Expiration Date:</Text>
             <Text>Maintenance Due Date:</Text>
+
             <Button
               style={styles.button}
               type="solid"
@@ -66,10 +66,21 @@ export default class Home extends Component {
               title="Car Payment"
             />
 
+            {/* <Button
+                    type=“solid”
+             style={{ marginTop: 40 }}
+                title=“Compare Carbon Output Here”
+             buttonStyle={{
+                    backgroundColor: “#18228c”
+              }}
+             onPress={() => {
+                    this.props.navigation.navigate(“ChooseCar”);
+              }}
+            /> */}
             <Button
               type="solid"
-              style={{ marginTop: 40 }}
-              title="Compare Carbon Output Here"
+              style={{ marginTop: 10 }}
+              title="Compare Carbon Output"
               buttonStyle={{
                 backgroundColor: "#18228c"
               }}
@@ -90,13 +101,12 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   text: {
-    margin: 10,
-    justifyContent: "center"
+    margin: 10
   },
   button: {
     marginTop: 40
   },
   header: {
-    backgroundColor: "red"
+    // backgroundColor: "red"
   }
 });

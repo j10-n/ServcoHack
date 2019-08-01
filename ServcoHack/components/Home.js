@@ -30,11 +30,7 @@ export default class Home extends Component {
           <Text title="welcomeuser">Welcome Jen!</Text>
 
           <Card title="2019 Toyota PRIUS XLE HYBRID">
-            <TouchableHighlight
-              onPress={() => {
-                this.props.navigation.navigate("CarbonData");
-              }}
-            >
+            <TouchableHighlight>
               <Image
                 source={{
                   uri:
@@ -48,10 +44,12 @@ export default class Home extends Component {
             </Text>
             <Text>Warranty Expiration Date:</Text>
             <Text>Maintenance Due Date:</Text>
-
             <Button
+              style={styles.button}
               type="solid"
-              style={{ marginTop: 40 }}
+              buttonStyle={{
+                backgroundColor: "#18228c"
+              }}
               title="Schedule"
               onPress={() => {
                 this.props.navigation.navigate("Schedule_Calendar");
@@ -59,13 +57,18 @@ export default class Home extends Component {
             />
             <Button
               type="solid"
+              disabled={true}
               style={{ marginTop: 10 }}
               title="Car Payment"
             />
+
             <Button
               type="solid"
               style={{ marginTop: 40 }}
               title="Compare Carbon Output Here"
+              buttonStyle={{
+                backgroundColor: "#18228c"
+              }}
               onPress={() => {
                 this.props.navigation.navigate("ChooseCar");
               }}
@@ -83,7 +86,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   text: {
-    margin: 10
+    margin: 10,
+    justifyContent: "center"
   },
   button: {
     marginTop: 40

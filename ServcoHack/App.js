@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import jah from "./components/test";
+import CarbonData from "./components/carbonData";
 import Jah from "./components/test";
+import ChooseCar from "./components/chooseCar";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Jah />
+      <ChooseCar />
     </View>
   );
 }

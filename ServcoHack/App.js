@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import CarbonData from "./components/carbonData";
 import Jah from "./components/test";
 import ChooseCar from "./components/chooseCar";
+import ChooseCarServco from "./components/chooseCar2";
 
 export default function App() {
   return (

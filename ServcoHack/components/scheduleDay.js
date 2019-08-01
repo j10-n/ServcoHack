@@ -22,7 +22,8 @@ export default class ScheduleDay extends Component {
         10: "October",
         11: "November",
         12: "December"
-      }
+      },
+      monthShow: null
     };
   }
   componentDidMount() {
@@ -30,11 +31,13 @@ export default class ScheduleDay extends Component {
     const selectDay = navigation.getParam("selectDay");
     const selectMonth = navigation.getParam("selectMonth");
     const selectYear = navigation.getParam("selectYear");
+    const selectedMonth = this.state.monthsOfYear[selectMonth];
     this.setState({
       day: selectDay,
       month: selectMonth,
       year: selectYear,
-      isDateTimePickerVisible: false
+      isDateTimePickerVisible: false,
+      monthShow: selectedMonth
     });
   }
   showDateTimePicker = () => {
@@ -52,8 +55,8 @@ export default class ScheduleDay extends Component {
     this.hideDateTimePicker();
   };
   render() {
-    const { day, month, year } = this.state;
-    const selectedMonth = this.state.monthsOfYear[day];
+    const { day, month, year, monthShow } = this.state;
+
     return (
       <View style={styles.container}>
         <Header
@@ -62,7 +65,7 @@ export default class ScheduleDay extends Component {
           rightComponent={{ icon: "home", color: "#fff" }}
         />
         <Text>You have selected</Text>
-        <Text>{selectedMonth}</Text>
+        <Text>{monthShow}</Text>
         <Text>{day}</Text>
         <Text>{year}</Text>
         <DateTimePicker

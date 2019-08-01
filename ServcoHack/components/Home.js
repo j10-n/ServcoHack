@@ -54,7 +54,7 @@ export default class Home extends Component {
               buttonStyle={{
                 backgroundColor: "#18228c"
               }}
-              title="Schedule"
+              title="Schedule Maintenance Checkup"
               onPress={() => {
                 this.props.navigation.navigate("Schedule_Calendar");
               }}

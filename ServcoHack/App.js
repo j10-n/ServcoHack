@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import ChooseCar from "./components/chooseCar";
 import ChooseCarServco from "./components/chooseCar2";
 import CarbonData from "./components/carbonData";
+import Comparison from "./components/comparison";
 class HomeScreen extends React.Component {
   render() {
     return (
@@ -26,7 +27,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
 
@@ -37,7 +39,8 @@ const AppNavigator = createStackNavigator(
     Schedule_Day: ScheduleDay,
     ChooseCar: ChooseCar,
     ChooseCar2: ChooseCarServco,
-    CarbonData: CarbonData
+    CarbonData: CarbonData,
+    Comparison: Comparison
   },
   {
     initialRouteName: "Home"

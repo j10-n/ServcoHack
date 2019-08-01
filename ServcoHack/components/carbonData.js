@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import { Text, View, Image, StyleSheet, FlatList, Linking } from "react-native";
+import { Header } from "react-native-elements";
 
 export default class CarbonData extends Component {
   state = {
     url:
-      "http://st.motortrend.com/uploads/sites/10/2015/11/2009-toyota-prius-touring-hatchback-angular-front.png"
+      "https://static.tcimg.net/vehicles/primary/faa5c82227423d86/2019-Toyota-Prius-white-full_color-driver_side_front_quarter.png"
   };
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.fontSize2}>2009 Toyota Prius</Text>
+        <Header
+          leftComponent={{ icon: "menu", color: "#fff" }}
+          centerComponent={{ text: "HOME", style: { color: "#fff" } }}
+          rightComponent={{ icon: "home", color: "#fff" }}
+        />
+        <Text style={styles.fontSize2}>2019 Toyota Prius</Text>
         <Image
           source={{
             uri: this.state.url

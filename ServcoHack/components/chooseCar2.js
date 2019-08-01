@@ -62,7 +62,13 @@ export default class ChooseCarServco extends Component {
             image="https://www.cstatic-images.com/car-pictures/xl/cac20foc052b0101.png"
           />
         </Picker>
-        <Button style={styles.button} title="See Results" />
+        <Button
+          style={styles.button}
+          title="See Results"
+          onPress={() => {
+            this.props.navigation.navigate("Comparison");
+          }}
+        />
       </View>
     );
   }

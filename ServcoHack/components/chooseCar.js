@@ -9,7 +9,7 @@ import {
   Picker,
   Dimensions
 } from "react-native";
-import { Header, Button } from "react-native-elements";
+import { Header, Button, ThemeConsumer } from "react-native-elements";
 
 export default class ChooseCar extends Component {
   state = {
@@ -20,6 +20,7 @@ export default class ChooseCar extends Component {
 
   onValueChange = (itemValue, itemIndex) => {
     this.setState({ car1: itemValue });
+
     if (
       this.state.carImage ===
       "https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2019-Honda-Civic-Lunar-Silver-Metallic.png"
@@ -62,7 +63,13 @@ export default class ChooseCar extends Component {
             image="https://www.cstatic-images.com/car-pictures/xl/cac20foc052b0101.png"
           />
         </Picker>
-        <Button style={styles.button} title="Next" />
+        <Button
+          style={styles.button}
+          title="Next"
+          onPress={() => {
+            this.props.navigation.navigate("ChooseCar2");
+          }}
+        />
       </View>
     );
   }

@@ -74,7 +74,13 @@ export default class ScheduleDay extends Component {
         /> */}
 
         <View style={styles.bottom}>
-          <Button style={styles.button} title="Set My Appointment" />
+          <Button
+            style={styles.button}
+            title="Set My Appointment"
+            onPress={() => {
+              this.props.navigation.navigate("FinalScreen");
+            }}
+          />
         </View>
         <View style={styles.appointment}>
           <Text>Select Your Appointment Time for</Text>

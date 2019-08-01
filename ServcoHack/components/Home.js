@@ -7,15 +7,34 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
   }
+  static navigationOptions = {
+    title: "Home",
+    headerStyle: {
+      backgroundColor: "#f4511e"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <Header
-          leftComponent={{ icon: "menu", color: "#fff" }}
-          centerComponent={{ text: "HOME", style: { color: "#fff" } }}
-          rightComponent={{ icon: "home", color: "#fff" }}
-        />
+        {/* <Header
+          leftComponent={{
+            icon: "menu",
+            color: "#fff"
+          }}
+          centerComponent={{
+            text: "HOME",
+            style: { color: "#fff" }
+          }}
+          rightComponent={{
+            icon: "home",
+            color: "#fff"
+          }}
+        /> */}
         <Text h3>Servco Ohana</Text>
         <Text title="welcomeuser">Welcome Jen!</Text>
 
@@ -25,7 +44,11 @@ export default class Home extends Component {
               uri:
                 "https://c4d709dd302a2586107d-f8305d22c3db1fdd6f8607b49e47a10c.ssl.cf1.rackcdn.com/thumbnails/stock-images/8373897860e6a795bb1879dc16c761ea.png"
             }}
-            style={{ width: 330, height: 230, resizeMode: "contain" }}
+            style={{
+              width: 330,
+              height: 230,
+              resizeMode: "contain"
+            }}
           />
           <Text style={{ marginBottom: 10 }}>
             Click on your car to view more details...

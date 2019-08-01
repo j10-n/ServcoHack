@@ -20,6 +20,7 @@ export default class Schedule extends Component {
           centerComponent={{ text: "HOME", style: { color: "#fff" } }}
           rightComponent={{ icon: "home", color: "#fff" }}
         />
+        <Text>Select Your Maintenance Day</Text>
         <Calendar
           current={"2019-08-01"}
           // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined

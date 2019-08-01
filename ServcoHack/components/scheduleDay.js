@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
-import { Header } from "react-native-elements";
+import { StyleSheet, Text, View, Picker } from "react-native";
+import { Header, Button } from "react-native-elements";
 import DateTimePicker from "react-native-modal-datetime-picker";
 export default class ScheduleDay extends Component {
   constructor(props) {
@@ -23,21 +23,23 @@ export default class ScheduleDay extends Component {
         11: "November",
         12: "December"
       },
-      monthShow: null
+      monthShow: null,
+      time: null
     };
   }
   componentDidMount() {
     const { navigation } = this.props;
-    const selectDay = navigation.getParam("selectDay");
+    const selectDay = " " + navigation.getParam("selectDay") + " ";
     const selectMonth = navigation.getParam("selectMonth");
     const selectYear = navigation.getParam("selectYear");
-    const selectedMonth = this.state.monthsOfYear[selectMonth];
+    const selectedMonth = " " + this.state.monthsOfYear[selectMonth];
     this.setState({
       day: selectDay,
       month: selectMonth,
       year: selectYear,
       isDateTimePickerVisible: false,
-      monthShow: selectedMonth
+      monthShow: selectedMonth,
+      time: null
     });
   }
   showDateTimePicker = () => {
@@ -54,26 +56,54 @@ export default class ScheduleDay extends Component {
     console.log("A date has been picked: ", date);
     this.hideDateTimePicker();
   };
+  updateTime = select => {
+    this.setState({ time: select });
+  };
   render() {
     const { day, month, year, monthShow } = this.state;
 
     return (
       <View style={styles.container}>
-        <Header
-          leftComponent={{ icon: "menu", color: "#fff" }}
-          centerComponent={{ text: "HOME", style: { color: "#fff" } }}
-          rightComponent={{ icon: "home", color: "#fff" }}
-        />
-        <Text>You have selected</Text>
-        <Text>{monthShow}</Text>
-        <Text>{day}</Text>
-        <Text>{year}</Text>
-        <DateTimePicker
+        {/* <Button title="Pick Your Time" onPress={this.showDateTimePicker} /> */}
+        {/* <DateTimePicker
           mode="time"
+          minuteInterval="30"
           isVisible={this.state.isDateTimePickerVisible}
           onConfirm={this.handleDatePicked}
           onCancel={this.hideDateTimePicker}
-        />
+        /> */}
+
+        <View style={styles.bottom}>
+          <Button style={styles.button} title="Set My Appointment" />
+        </View>
+        <View style={styles.appointment}>
+          <Text>Select Your Appointment Time for</Text>
+        </View>
+        <View style={styles.dateContainer}>
+          <Text style={styles.text}>{monthShow}</Text>
+          <Text style={styles.text}>{day}</Text>
+          <Text style={styles.text}>{year}</Text>
+        </View>
+
+        <View style={styles.pickerContainer}>
+          <Picker
+            selectedValue={this.state.time}
+            onValueChange={this.updateTime}
+            style={styles.picker}
+          >
+            <Picker.Item label="7:00 AM" value="7:00 AM" />
+            <Picker.Item label="8:00 AM" value="8:00 AM" />
+            <Picker.Item label="9:00 AM" value="9:00 AM" />
+            <Picker.Item label="10:00 AM" value="10:00 AM" />
+            <Picker.Item label="11:00 AM" value="11:00 AM" />
+            <Picker.Item label="12:00 PM" value="12:00 PM" />
+            <Picker.Item label="1:00 PM" value="1:00 PM" />
+            <Picker.Item label="2:00 PM" value="2:00 PM" />
+            <Picker.Item label="3:00 PM" value="3:00 PM" />
+            <Picker.Item label="4:00 PM" value="4:00 PM" />
+            <Picker.Item label="5:00 PM" value="5:00 PM" />
+          </Picker>
+        </View>
       </View>
     );
   }
@@ -81,11 +111,33 @@ export default class ScheduleDay extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    justifyContent: "center",
+    flexDirection: "column",
     backgroundColor: "#fff",
+    padding: 10
+  },
+  picker: {
+    height: 30,
+    width: 200,
+    padding: 10
+  },
+  pickerContainer: {
+    flex: 0.5,
     alignItems: "center"
+  },
+  dateContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    padding: 20
   },
   button: {
     backgroundColor: "#3CB371"
+  },
+  appointment: {
+    alignItems: "center"
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "bold"
   }
 });

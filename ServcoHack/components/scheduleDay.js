@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import { Header } from "react-native-elements";
 import DateTimePicker from "react-native-modal-datetime-picker";
 export default class ScheduleDay extends Component {
   constructor(props) {
@@ -55,6 +56,11 @@ export default class ScheduleDay extends Component {
     const selectedMonth = this.state.monthsOfYear[day];
     return (
       <View style={styles.container}>
+        <Header
+          leftComponent={{ icon: "menu", color: "#fff" }}
+          centerComponent={{ text: "HOME", style: { color: "#fff" } }}
+          rightComponent={{ icon: "home", color: "#fff" }}
+        />
         <Text>You have selected</Text>
         <Text>{selectedMonth}</Text>
         <Text>{day}</Text>
@@ -69,11 +75,14 @@ export default class ScheduleDay extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: "center"
+  },
+  button: {
+    backgroundColor: "#3CB371"
   }
 });

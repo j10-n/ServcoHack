@@ -8,6 +8,11 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header
+          leftComponent={{ icon: "menu", color: "#fff" }}
+          centerComponent={{ text: "HOME", style: { color: "#fff" } }}
+          rightComponent={{ icon: "home", color: "#fff" }}
+        />
         <Home />
       </View>
     );
@@ -25,7 +30,7 @@ const styles = StyleSheet.create({
 
 const AppNavigator = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: Home,
     Schedule_Calendar: Schedule,
     Schedule_Day: ScheduleDay
   },

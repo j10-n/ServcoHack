@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Picker } from "react-native";
+import { StyleSheet, Text, View, Picker, Button } from "react-native";
+import { Header } from "react-native-elements";
 import { Calendar } from "react-native-calendars";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 export default class Schedule extends Component {
@@ -14,6 +15,11 @@ export default class Schedule extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header
+          leftComponent={{ icon: "menu", color: "#fff" }}
+          centerComponent={{ text: "HOME", style: { color: "#fff" } }}
+          rightComponent={{ icon: "home", color: "#fff" }}
+        />
         <Calendar
           current={"2019-08-01"}
           // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
@@ -33,11 +39,14 @@ export default class Schedule extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: "center"
+  },
+  button: {
+    backgroundColor: "#3CB371"
   }
 });

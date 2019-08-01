@@ -4,6 +4,9 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import ScheduleDay from "./components/scheduleDay";
 import Schedule from "./components/schedule";
 import Home from "./components/Home";
+import ChooseCar from "./components/chooseCar";
+import ChooseCarServco from "./components/chooseCar2";
+import CarbonData from "./components/carbonData";
 class HomeScreen extends React.Component {
   render() {
     return (
@@ -32,7 +35,10 @@ const AppNavigator = createStackNavigator(
   {
     Home: Home,
     Schedule_Calendar: Schedule,
-    Schedule_Day: ScheduleDay
+    Schedule_Day: ScheduleDay,
+    ChooseCar: ChooseCar,
+    ChooseCar2: ChooseCarServco,
+    CarbonData: CarbonData
   },
   {
     initialRouteName: "Home"

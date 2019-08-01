@@ -30,7 +30,11 @@ export default class Home extends Component {
           <Text title="welcomeuser">Welcome Jen!</Text>
 
           <Card title="2019 Toyota PRIUS XLE HYBRID">
-            <TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => {
+                this.props.navigation.navigate("CarbonData");
+              }}
+            >
               <Image
                 source={{
                   uri:

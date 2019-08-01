@@ -9,16 +9,32 @@ export default class Schedule extends Component {
     this.state = {
       selectMonth: null,
       selectday: null,
-      selectyear: null
+      selectyear: null,
+      location: "Servco Auto Waipahu"
     };
   }
+
+  updateLocation = select => {
+    this.setState({ location: select });
+  };
   render() {
+    const { location } = this.state;
+    console.log(location);
     return (
       <View style={styles.container}>
         <Header
-          leftComponent={{ icon: "menu", color: "#fff" }}
-          centerComponent={{ text: "HOME", style: { color: "#fff" } }}
-          rightComponent={{ icon: "home", color: "#fff" }}
+          leftComponent={{
+            icon: "menu",
+            color: "#fff"
+          }}
+          centerComponent={{
+            text: "HOME",
+            style: { color: "#fff" }
+          }}
+          rightComponent={{
+            icon: "home",
+            color: "#fff"
+          }}
         />
         <Text>Select Your Maintenance Day</Text>
         <Calendar
@@ -32,10 +48,31 @@ export default class Schedule extends Component {
             this.props.navigation.navigate("Schedule_Day", {
               selectDay: day.day,
               selectMonth: day.month,
-              selectYear: day.year
+              selectYear: day.year,
+              selectLocation: location
             });
           }}
         />
+        <View style={styles.pickerContainer}>
+          <Picker
+            selectedValue={this.state.location}
+            onValueChange={this.updateLocation}
+            style={styles.picker}
+          >
+            <Picker.Item
+              label="Servco Auto Waipahu"
+              value="Servco Auto Waipahu"
+            />
+            <Picker.Item
+              label="Servco Toyota Honolulu"
+              value="Servco Toyota Honolulu"
+            />
+            <Picker.Item
+              label="Servco Toyota Windward"
+              value="Servco Toyota Windward"
+            />
+          </Picker>
+        </View>
       </View>
     );
   }
@@ -49,5 +86,9 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#3CB371"
+  },
+  picker: {
+    height: 30,
+    width: 300
   }
 });

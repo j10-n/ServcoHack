@@ -8,7 +8,8 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      appointDate: null
+      appointDate: null,
+      appointlocation: null
     };
   }
   static navigationOptions = {
@@ -36,11 +37,12 @@ export default class Home extends Component {
   componentDidMount() {
     const { navigation } = this.props;
     const apptDate = navigation.getParam("apptDate");
-    this.setState({ appointDate: apptDate });
+    const place = navigation.getParam("place");
+    this.setState({ appointDate: apptDate, appointLocation: place });
   }
 
   render() {
-    const { appointDate } = this.state;
+    const { appointDate, appointLocation } = this.state;
     console.log(appointDate);
     return (
       <View style={styles.container}>
@@ -67,7 +69,9 @@ export default class Home extends Component {
               Click on your car to view more details...
             </Text>
             <Text>Warranty Expiration Date:</Text>
-            <Text>Maintenance Appointment: {appointDate}</Text>
+            <Text>
+              Maintenance Appointment: {appointDate} at {appointLocation}
+            </Text>
 
             <Button
               style={styles.button}

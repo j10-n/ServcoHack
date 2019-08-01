@@ -24,7 +24,8 @@ export default class ScheduleDay extends Component {
         12: "December"
       },
       monthShow: null,
-      time: null
+      time: null,
+      location: null
     };
   }
   componentDidMount() {
@@ -32,6 +33,7 @@ export default class ScheduleDay extends Component {
     const selectDay = " " + navigation.getParam("selectDay") + " ";
     const selectMonth = navigation.getParam("selectMonth");
     const selectYear = navigation.getParam("selectYear");
+    const selectLocation = navigation.getParam("selectLocation");
     const selectedMonth = " " + this.state.monthsOfYear[selectMonth];
     this.setState({
       day: selectDay,
@@ -39,7 +41,8 @@ export default class ScheduleDay extends Component {
       year: selectYear,
       isDateTimePickerVisible: false,
       monthShow: selectedMonth,
-      time: null
+      time: null,
+      location: selectLocation
     });
   }
   showDateTimePicker = () => {
@@ -60,7 +63,7 @@ export default class ScheduleDay extends Component {
     this.setState({ time: select });
   };
   render() {
-    const { day, month, year, monthShow, time } = this.state;
+    const { day, month, year, monthShow, time, location } = this.state;
     const fullDate = monthShow + day + year + " " + time;
     return (
       <View style={styles.container}>
@@ -79,13 +82,17 @@ export default class ScheduleDay extends Component {
             title="Set My Appointment"
             onPress={() => {
               this.props.navigation.navigate("FinalScreen", {
-                apptDate: fullDate
+                apptDate: fullDate,
+                place: location
               });
             }}
           />
         </View>
         <View style={styles.appointment}>
           <Text>Select Your Appointment Time for</Text>
+        </View>
+        <View style={styles.dateContainer}>
+          <Text style={styles.text}>{location}</Text>
         </View>
         <View style={styles.dateContainer}>
           <Text style={styles.text}>{monthShow}</Text>

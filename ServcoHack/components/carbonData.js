@@ -6,7 +6,7 @@ import { ScrollView } from "react-native-gesture-handler";
 export default class CarbonData extends Component {
   state = {
     url:
-      "https://static.tcimg.net/vehicles/primary/faa5c82227423d86/2019-Toyota-Prius-white-full_color-driver_side_front_quarter.png"
+      "https://c4d709dd302a2586107d-f8305d22c3db1fdd6f8607b49e47a10c.ssl.cf1.rackcdn.com/thumbnails/stock-images/8373897860e6a795bb1879dc16c761ea.png"
   };
 
   static navigationOptions = {
@@ -37,7 +37,7 @@ export default class CarbonData extends Component {
         <FlatList
           data={[
             { key: "MPG: 48" },
-            { key: "Avg Yearly Carbon Output: 2.98 metric tons" },
+            { key: "Avg Yearly Carbon Output: 2.5 metric tons" },
             { key: "Engine Type: Hybrid" },
             { key: "Total Seats: 5" },
             { key: "Drive Type: Front Wheel Drive" },
